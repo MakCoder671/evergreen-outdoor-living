@@ -4,6 +4,8 @@ A responsive, multi-page website for a fictional landscaping and outdoor-living 
 
 > **Portfolio concept:** Evergreen Outdoor Living is a fictional business created to demonstrate front-end development, responsive design, accessibility, and automated testing. It is not presented as paid client work.
 
+# VIEW LIVE: https://makcoder671.github.io/evergreen-outdoor-living/
+
 ## Project overview
 
 The website is designed around a practical business goal: turn local visitors into qualified leads. It uses clear service information, project examples, trust indicators, testimonials, and repeated calls to action to move visitors toward the contact form.
