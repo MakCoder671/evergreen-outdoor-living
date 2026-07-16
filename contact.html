@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request a free outdoor-living project consultation from Evergreen Outdoor Living.">
+  <title>Contact Us | Evergreen Outdoor Living</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body class="min-h-screen">
+  <!--
+    CONTACT PAGE NOTES
+    This page is the main conversion goal: collect project details and start a lead.
+    The form is front-end only until a backend or form service is connected.
+  -->
+  <!-- Shared sticky header and responsive navigation. -->
+  <header class="site-header sticky top-0 z-50">
+    <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4 lg:px-8" aria-label="Main navigation">
+      <a class="text-lg font-bold tracking-tight text-[var(--color-primary)]" href="index.html" aria-label="Evergreen Outdoor Living home">Evergreen Outdoor Living</a>
+      <button type="button" class="menu-button rounded-lg border border-[var(--color-border)] px-3 py-2 font-semibold md:hidden" aria-expanded="false" aria-controls="navigation-menu">Menu</button>
+      <!-- Mobile list is toggled by script.js; desktop visibility comes from md:flex. -->
+      <ul class="order-last hidden w-full flex-col gap-4 py-3 md:order-none md:flex md:w-auto md:flex-row md:items-center md:py-0" id="navigation-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a class="active-link" href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+      <a class="button-primary hidden sm:inline-flex" href="contact.html">Get a Free Estimate</a>
+    </nav>
+  </header>
+
+  <main class="overflow-hidden">
+    <!-- Page hero: tells visitors what to submit and what happens afterward. -->
+    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+      <p class="eyebrow">Contact us</p>
+      <h1 class="mt-4 max-w-4xl text-5xl sm:text-6xl">Let’s plan your outdoor space</h1>
+      <p class="mt-6 max-w-2xl text-lg">Share a few details about your project and we’ll contact you to schedule a free consultation.</p>
+    </section>
+
+    <!-- Stacked on mobile; form + sidebar split into columns at md/768px. -->
+    <section class="soft-section grid gap-10 px-5 py-20 md:grid-cols-[minmax(0,1.5fr)_minmax(16rem,1fr)] lg:px-[max(2rem,calc((100vw-80rem)/2))] lg:py-28">
+      <div>
+        <h2 class="text-4xl sm:text-5xl">Request a free estimate</h2>
+        <!-- Backend handoff point: later add action/method or submit with fetch(). -->
+        <form class="card-surface mt-8 grid gap-5 rounded-2xl p-6 shadow-sm sm:grid-cols-2 sm:p-8" id="estimate-form">
+          <div class="grid gap-2"><label for="name">Name</label><input type="text" id="name" name="name" autocomplete="name" required></div>
+          <div class="grid gap-2"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+          <div class="grid gap-2"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel"></div>
+          <div class="grid gap-2">
+            <label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service</option>
+              <option value="landscape-design">Landscape design</option>
+              <option value="patios-hardscapes">Patios and hardscapes</option>
+              <option value="outdoor-lighting">Outdoor lighting</option>
+              <option value="seasonal-care">Seasonal care</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="grid gap-2 sm:col-span-2"><label for="message">Tell us about your project</label><textarea id="message" name="message" rows="6" required></textarea></div>
+          <button class="button-primary sm:col-span-2" type="submit">Request My Free Estimate</button>
+        </form>
+      </div>
+
+      <!-- Supporting details answer common questions without crowding the form. -->
+      <aside class="card-surface h-fit rounded-2xl p-7">
+        <h2 class="text-3xl">Contact information</h2>
+        <address>
+          <p><strong>Phone</strong><br><a href="tel:+15551234567">(555) 123-4567</a></p>
+          <p><strong>Email</strong><br><a href="mailto:hello@evergreenoutdoor.com">hello@evergreenoutdoor.com</a></p>
+          <p><strong>Hours</strong><br>Monday–Friday, 8:00 AM–5:00 PM</p>
+        </address>
+        <h3>What happens next?</h3>
+        <ol class="mt-4 grid list-decimal gap-3 pl-5">
+          <li>We review your project details.</li>
+          <li>We call to learn more about your goals.</li>
+          <li>We schedule your free consultation.</li>
+        </ol>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Shared footer with a second route to phone and email contact. -->
+  <footer class="site-footer grid gap-6 px-5 py-12 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+    <div><a class="text-lg font-bold" href="index.html">Evergreen Outdoor Living</a>
+    <p>Thoughtful outdoor spaces, designed and built to last.</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <ul class="grid gap-2">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <address><a href="tel:+15551234567">(555) 123-4567</a><br><a href="mailto:hello@evergreenoutdoor.com">hello@evergreenoutdoor.com</a></address>
+    <p class="md:col-span-2 lg:col-span-4">&copy; 2026 Evergreen Outdoor Living. All rights reserved.</p>
+  </footer>
+  <!-- Menu interaction loads after the DOM elements it needs. -->
+  <script src="script.js"></script>
+</body>
+</html>

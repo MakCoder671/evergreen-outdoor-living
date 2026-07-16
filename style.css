@@ -1,0 +1,174 @@
+/*
+  Shared design system
+  --------------------
+  This file controls the overall visual identity of every page.
+  Tailwind classes in the HTML control local layout and responsive behavior.
+*/
+
+:root {
+  /* Brand tokens: update these once to change the full site's color system. */
+  --color-background: #f7f4ec;
+  --color-surface: #ffffff;
+  --color-surface-soft: #e9eee6;
+  --color-primary: #173d2b;
+  --color-primary-light: #2f6849;
+  --color-accent: #c8754f;
+  --color-text: #243129;
+  --color-text-muted: #647068;
+  --color-border: #d8ddd5;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* GENERAL PAGE DEFAULTS */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* Georgia gives headings a premium/editorial feel; body text stays system-safe. */
+h1,
+h2,
+h3 {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+/* Keep hover/focus changes smooth without animating full page layouts. */
+a,
+button,
+input,
+select,
+textarea {
+  transition: 180ms ease;
+}
+
+/* Visible keyboard focus is important for accessibility—never remove it. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 55%, transparent);
+  outline-offset: 3px;
+}
+
+/* SHARED FORM CONTROLS
+   Layout stays in Tailwind; field appearance stays consistent here. */
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 0.8rem 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-primary-light);
+}
+
+button {
+  cursor: pointer;
+}
+
+/* SHARED SITE SHELL */
+.site-header {
+  background: color-mix(in srgb, var(--color-background) 94%, transparent);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);
+}
+
+/* Slight transparency + blur keeps the sticky header readable while scrolling. */
+.site-footer {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Re-color nested footer content so the global gray paragraph rule cannot win. */
+.site-footer p,
+.site-footer a,
+.site-footer address {
+  color: #dfe9e2;
+}
+
+/* REUSABLE CONTENT STYLES */
+/* Small uppercase label used above major page and section headings. */
+.eyebrow {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Buttons share shape/spacing here; HTML decides where and how wide they sit. */
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.9rem 1.25rem;
+  text-decoration: none;
+}
+
+/* Primary = strongest action, such as requesting an estimate. */
+.button-primary {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.button-primary:hover {
+  background: var(--color-primary-light);
+}
+
+/* Secondary = lower-priority action, such as browsing projects. */
+.button-secondary {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.button-secondary:hover {
+  background: var(--color-surface-soft);
+}
+
+/* SECTION + CARD SURFACES
+   Named colors make visual debugging easier than repeating hex values. */
+.surface-section {
+  background: var(--color-surface);
+}
+
+.soft-section {
+  background: var(--color-surface-soft);
+}
+
+.card-surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+/* The current page gets a stronger navigation state for orientation. */
+.active-link {
+  color: var(--color-primary);
+  font-weight: 800;
+}

@@ -1,0 +1,21 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Local editor settings
+.vscode/
+
+# Environment files can contain secrets
+.env
+.env.*
+!.env.example
+
+# Operating-system and debug files
+.DS_Store
+*.log
+npm-debug.log*

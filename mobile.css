@@ -1,0 +1,118 @@
+/*
+  Mobile refinements
+  ------------------
+  Tailwind handles the main responsive layouts in the HTML.
+  This file fine-tunes the shared experience below the md breakpoint.
+*/
+
+@media (max-width: 767px) {
+  /* Prevent a wide child from creating accidental side-to-side scrolling. */
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    scroll-margin-top: 5rem;
+  }
+
+  /* MOBILE HEADER + MENU */
+  .site-header nav {
+    position: relative;
+  }
+
+  .site-header nav > a:first-child {
+    max-width: calc(100% - 5.5rem);
+    line-height: 1.2;
+  }
+
+  /* 44px-ish controls provide a comfortable minimum touch target. */
+  .menu-button {
+    min-width: 4.5rem;
+    min-height: 2.75rem;
+  }
+
+  /* JavaScript removes `hidden`; this rule turns the revealed list into flex. */
+  #navigation-menu:not(.hidden) {
+    display: flex;
+    border-top: 1px solid var(--color-border);
+    margin-top: 0.25rem;
+    padding-top: 1rem;
+  }
+
+  /* Give each navigation link a larger area to tap. */
+  #navigation-menu a {
+    display: block;
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.25rem;
+  }
+
+  #navigation-menu a:active {
+    background: var(--color-surface-soft);
+  }
+
+  /* MOBILE TYPE SCALE */
+  /* clamp() grows text with screen width but keeps it inside safe limits. */
+  main h1 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+    overflow-wrap: anywhere;
+  }
+
+  main h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  main h3 {
+    overflow-wrap: anywhere;
+  }
+
+  /* Full-width calls to action are easier to scan and tap on narrow screens. */
+  main .button-primary,
+  main .button-secondary,
+  main button.button-primary {
+    min-height: 3rem;
+    width: 100%;
+  }
+
+  /* A subtle mobile shadow separates stacked cards from the page background. */
+  .card-surface {
+    box-shadow: 0 0.5rem 1.5rem rgb(23 61 43 / 7%);
+  }
+
+  /* MOBILE FORMS */
+  input,
+  select,
+  textarea {
+    /* A 16px minimum prevents unwanted zoom on iPhones. */
+    font-size: 1rem;
+  }
+
+  textarea {
+    min-height: 9rem;
+    resize: vertical;
+  }
+
+  /* MOBILE FOOTER */
+  .site-footer {
+    text-align: center;
+  }
+
+  .site-footer address {
+    font-style: normal;
+  }
+}
+
+/* Extra-small phones need slightly tighter spacing and smaller hero text. */
+@media (max-width: 420px) {
+  .site-header nav {
+    padding-inline: 1rem;
+  }
+
+  main h1 {
+    font-size: 2.5rem;
+  }
+
+  .card-surface {
+    border-radius: 1rem;
+    padding: 1.25rem;
+  }
+}
